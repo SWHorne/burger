@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 text-center mx-auto">
+            <img class="burger-img" src="/burger/public/assets/img/triple-cheeseburger.png" alt="triple cheeseburger " />
+            <h1 class="title">Eat - Da - Burger!</h1>
+            <form id="form">
+                <input type="text" id="input" placeholder="Enter a burger you want to eat..." />
+                <button type="submit" id="submit" class="button submit">Submit</button> 
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="row">
+        <!-- Burger list -->
+        <div class="col-sm-6">
+            <h2 class="sub-title sub-title-eat mx-auto">Burgers to Eat</h2>
+            <div>
+                {{#each burgers}}
+                    {{#unless devoured}}
+                        {{> burger-list devoured=false}}
+                    {{/unless}}
+                {{/each}}
+            </div>
+        </div>
+        <!-- Eaten Burger list -->
+            <h2 class="sub-title sub-title-ate mx-auto">Burgers I Ate</h2>
+            <div>
+                {{#each burgers}}
+                    {{#if devoured}}
+                        {{> burger-list devoured=true}}
+                    {{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
